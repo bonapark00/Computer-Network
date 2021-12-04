@@ -8,7 +8,7 @@ import time
 import os
 
 window = tk.Tk()
-window.title("클라이언트")
+window.title("Client")
 username = " "
 
 toppestFrame = tk.Frame(window)
