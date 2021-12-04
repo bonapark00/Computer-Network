@@ -5,7 +5,7 @@ import threading
 import time
 
 window = tk.Tk()
-window.title("서버")
+window.title("Bona & Eric's Chat Program")
 
 toppestFrame = tk.Frame(window)
 displayFrame = tk.Frame(window)
@@ -27,7 +27,7 @@ displayFrame.pack(side=tk.TOP, pady=(5, 0))
 lblLine = tk.Label(clientListFrame, text="현재 접속중인 유저").pack()
 scrollBar = tk.Scrollbar(clientListFrame)
 scrollBar.pack(side=tk.RIGHT, fill=tk.Y)
-content = tk.Text(clientListFrame, height=15, width=30)
+content = tk.Text(clientListFrame, height=15, width=45)
 content.pack(side=tk.LEFT, fill=tk.Y, padx=(5, 0))
 scrollBar.config(command=content.yview)
 content.config(yscrollcommand=scrollBar.set, background="#FFFAD4", highlightbackground="grey", state="disabled")
@@ -60,7 +60,9 @@ def acceptClients(accepted, y):
 
 def controlMessage(client_connection, client_ip_addr, reconnect):
     client_name = client_connection.recv(4096).decode()
-    welcome_msg = "안녕하세요 \'" + client_name + "\'님!\n" + "'/exit'으로 접속 종료 해주세요!"
+    welcome_msg = "Hi \'" + client_name + "\'님!\n + \
+                 Welcome to 'Bona & Eric's Chat Program! \
+                '/exit'으로 접속 종료 해주세요!"
     client_connection.send(welcome_msg.encode())
     client_name += ": " + str(client_ip_addr)
     clients_names.append(client_name)
