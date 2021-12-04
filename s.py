@@ -60,9 +60,9 @@ def acceptClients(accepted, y):
 
 def controlMessage(client_connection, client_ip_addr, reconnect):
     client_name = client_connection.recv(4096).decode()
-    welcome_msg = "Hi \'" + client_name + "\'님!\n + \
-                 Welcome to 'Bona & Eric's Chat Program! \
-                '/exit'으로 접속 종료 해주세요!"
+    welcome_msg = "Hi \'" + client_name + "\'님!\n\
+Welcome to 'Bona & Eric's Chat Program!\n\
+'/exit'으로 접속 종료 해주세요!"
     client_connection.send(welcome_msg.encode())
     client_name += ": " + str(client_ip_addr)
     clients_names.append(client_name)
